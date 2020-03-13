@@ -1,0 +1,1 @@
+call ".\sync_dispatcher.bat" a

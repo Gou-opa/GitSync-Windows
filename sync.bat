@@ -1,26 +1,21 @@
 @echo off
-set destination_folder="%~1"
-echo day la dest "%~1"
-echo Checking internet connection
-Ping 8.8.8.8 -n 1 -w 1000
 
-if %errorlevel% == 0 (
-    echo Connected
-    call :sync %destination_folder%
-) else (
-    echo No internet connection
-    pause
+rem	for new path, create a path variable here
+rem	then add variable order to all_path if want to join quick sync
+rem	then create a trigger param in if area
+
+set sync_script=".\sync_supervisor.bat"
+set "delim=$"
+set "token=%~1"
+for /F "tokens=%token% delims=%delim%" %%f IN (.\path.txt) DO (
+    echo Cac path nay se duoc update: %%f
+    @call %sync_script% "%%f"
 )
+
 goto :eof
 
-:sync
-setlocal
-set "string=%destination_folder%"
-echo day la string %string%
-set "str=start /B .\sync_worker.bat %string:;=" & start /B .\sync_worker.bat "%"
-echo .
-echo "final str:%str%"
-echo .
-%str%
-endlocal
+:notfound
+rem if not found
+echo "Command not found"
+echo "Please define path, append to all_path and create a sync execute option"
 goto :eof

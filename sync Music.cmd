@@ -1,1 +1,1 @@
-call ".\sync_dispatcher.bat" 2
+.\sync 2

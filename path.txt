@@ -1,1 +1,1 @@
-%CD:~0,3%Xmind pool;%CD:~0,3%Music;%CD:~0,3%Knowledge\IT\Certs\Cisco certificate\packet tracer lab$%CD:~0,3%Music$%CD:~0,3%Knowledge\IT\Certs\Cisco certificate\packet tracer lab$%CD:~0,3%Xmind pool$
+U:\Xmind pool;U:\Music;U:\Knowledge\IT\Certs\Cisco certificate\packet tracer lab$U:\Music$U:\Knowledge\IT\Certs\Cisco certificate\packet tracer lab$U:\Xmind pool$

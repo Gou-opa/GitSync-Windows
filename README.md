@@ -7,22 +7,25 @@ Add new folder:
 - Create a new repository on Github
 - Add remote as "origin"
 - Commit first time and push to origin master
-- Create a batch file like sync_{folder}.bat with body:
+- Create a file named path.txt
+    - File included several sync configuration and you should note down each configuration index.
+    - Each configuration is a list of folder with ; delimiter, end of each configuration is a $ sign. This help you can define multiple path to be sync in one configuration
+    ```text
+    C:\config1\path to\folder1;D:\config1\path to\folder2$
+    ```
+    - To add new configuration, append configuration in the following models:
+    ```
+    old configurations$new configuration 1$new configuration 2$
+    ```
+    - Each configuration start and end without a space between text and $ sign. Space in path is allowed
+- Create a batch file like sync_{folder}.bat or .cmd with body:
 ```batch
-call ".\sync_dispatcher.bat" <your_new_shortcut_keyword>
+.\sync <index of configuration>
+i.e: to trigger 3rd configuration
+.\sync 3
 ```
-- Open sync_dispatcher then edit:
-    - At ####define path: declare new path
-    ```batch
-    set "<folder_short_name>=<Drive:\path\to\folder>"
-    ```
-    - At ####append all: add these words before " (close double quote)
-    ```batch
-    ;%<folder_short_name>%
-    ```
-    - At ####sync execute: create a new execution under the last if statement follow this format
-    ```batch
-    if "%1"=="<your_new_shortcut_keyword>" set "destination_folders=%<folder_short_name>%" && goto :do
-    ```
-    - Save file
-- Run sync_{folder}.bat and sync_All.bat to verify results
+    - Right click into .bat file and send to Desktop for shortcut
+- Run sync_{folder}.bat or call in cmd:
+```batch
+D:\project\GitSyncWin\sync 3
+```

@@ -10,6 +10,7 @@ set "str=start /B .\sync_worker.bat %string:;=" & start /B .\sync_worker.bat "%"
 echo .
 echo "final str:%str%"
 echo .
+pause
 %str%
 ) else (
 echo No internet connection

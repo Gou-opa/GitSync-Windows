@@ -12,7 +12,7 @@ echo .
 echo "final str:%str%"
 echo .
 
-%str%
+rem %str%
 ) else (
 echo No internet connection
 )

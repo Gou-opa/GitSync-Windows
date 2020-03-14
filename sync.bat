@@ -16,4 +16,5 @@ rem %str%
 ) else (
 echo No internet connection
 )
+pause
 goto :eof

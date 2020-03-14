@@ -7,6 +7,7 @@ if errorlevel 0 (
 echo Connected
 pause
 set "string=%destination_folder%"
+echo "day la string %string%"
 set "str=start /B .\sync_worker.bat %string:;=" & start /B .\sync_worker.bat "%"
 echo .
 echo "final str:%str%"

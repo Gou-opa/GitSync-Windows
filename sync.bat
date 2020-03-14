@@ -1,22 +1,26 @@
 @echo off
-
+set destination_folder="%~1"
+echo day la dest "%~1"
 echo Checking internet connection
 Ping 8.8.8.8 -n 1 -w 1000
-if errorlevel 0 (
-echo Connected
-set destination_folder="%~1"
 
-rem set "string=%destination_folder%"
-rem echo day la %string%
-echo day la dest "%~1"
-pause
-set "str=start /B .\sync_worker.bat %~1:;=" & start /B .\sync_worker.bat "%"
+if %errorlevel% == 0 (
+    echo Connected
+    call :sync %destination_folder%
+) else (
+    echo No internet connection
+    pause
+)
+goto :eof
+
+:sync
+setlocal
+set "string=%destination_folder%"
+echo day la string %string%
+set "str=start /B .\sync_worker.bat %string:;=" & start /B .\sync_worker.bat "%"
 echo .
 echo "final str:%str%"
 echo .
-
 %str%
-) else (
-echo No internet connection
-)
+endlocal
 goto :eof

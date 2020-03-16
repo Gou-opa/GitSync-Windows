@@ -7,7 +7,7 @@ Add new folder:
 - Create a new repository on Github
 - Add remote as "origin"
 - Commit first time and push to origin master
-- Create a batch file like sync_{folder}.bat with body:
+- Create a batch file like sync_{folder}.cmd with body:
 ```batch
 call ".\sync_dispatcher.bat" <your_new_shortcut_keyword>
 ```
@@ -25,4 +25,4 @@ call ".\sync_dispatcher.bat" <your_new_shortcut_keyword>
     if "%1"=="<your_new_shortcut_keyword>" set "destination_folders=%<folder_short_name>%" && goto :do
     ```
     - Save file
-- Run sync_{folder}.bat and sync_All.bat to verify results
+- Run sync_{folder}.cmd and sync_All.bat to verify results
